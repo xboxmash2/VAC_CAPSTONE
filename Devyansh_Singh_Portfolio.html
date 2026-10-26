@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10243a">
+  <meta name="description" content="Devyansh Singh — BCA (AI & Data Science) student documenting a technology learning journey through practical projects, clear notes, and honest progress.">
+  <title>Devyansh Singh | Learning in Progress</title>
+  <style>
+    :root {
+      --navy: #10243a;
+      --navy-2: #17344e;
+      --teal: #17a89b;
+      --mint: #dff3f1;
+      --amber: #d7a84e;
+      --paper: #f7fafb;
+      --white: #fff;
+      --ink: #253448;
+      --muted: #65758b;
+      --line: #dbe5eb;
+      --radius: 20px;
+      --shadow: 0 18px 50px rgba(16,36,58,.10);
+      --max: 1100px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; background: var(--paper); color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.65;
+    }
+    a { color: inherit; }
+    a:focus-visible, button:focus-visible { outline: 3px solid var(--amber); outline-offset: 4px; }
+    .wrap { width: min(var(--max), calc(100% - 40px)); margin-inline: auto; }
+    .topbar { background: var(--navy); color: var(--white); }
+    .nav { display:flex; align-items:center; justify-content:space-between; gap:24px; min-height:76px; }
+    .brand { display:flex; align-items:center; gap:12px; color:var(--white); text-decoration:none; font-weight:800; letter-spacing:.02em; }
+    .monogram { display:grid; place-items:center; width:40px; height:40px; border:1px solid rgba(255,255,255,.22); border-radius:13px; color:#8ce2d9; font-size:14px; }
+    .navlinks { display:flex; gap:25px; align-items:center; }
+    .navlinks a { color:#d6e2ec; text-decoration:none; font-size:.92rem; }
+    .navlinks a:hover { color:#8ce2d9; }
+    .menu-btn { display:none; background:none; border:1px solid rgba(255,255,255,.35); color:white; border-radius:10px; padding:8px 12px; font:inherit; }
+    .hero { position:relative; overflow:hidden; color:white; background:linear-gradient(130deg,var(--navy) 0%,#153b54 65%,#146b70 130%); padding:92px 0 90px; }
+    .hero::after { content:""; position:absolute; width:420px; height:420px; border:1px solid rgba(140,226,217,.19); border-radius:50%; right:-80px; top:-210px; box-shadow:0 0 0 42px rgba(140,226,217,.035),0 0 0 90px rgba(140,226,217,.025); }
+    .hero-grid { position:relative; z-index:1; display:grid; grid-template-columns:1.5fr .7fr; gap:55px; align-items:center; }
+    .eyebrow { color:#8ce2d9; text-transform:uppercase; letter-spacing:.15em; font-size:.77rem; font-weight:800; }
+    h1,h2,h3,p { margin-top:0; }
+    h1 { max-width:760px; margin:15px 0 16px; font-size:clamp(2.7rem,6vw,5.1rem); line-height:1.03; letter-spacing:-.055em; }
+    .hero p { max-width:650px; color:#d5e3ec; font-size:1.13rem; }
+    .hero .tagline { color:white; font-size:1.02rem; font-weight:700; margin:0 0 26px; }
+    .actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:28px; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; gap:9px; padding:12px 18px; border-radius:12px; background:var(--teal); border:1px solid var(--teal); color:white; text-decoration:none; font-weight:750; transition:transform .18s,background .18s; }
+    .btn:hover { transform:translateY(-2px); background:#118f85; }
+    .btn.ghost { color:white; background:transparent; border-color:rgba(255,255,255,.3); }
+    .btn.ghost:hover { background:rgba(255,255,255,.08); }
+    .hero-card { padding:27px; border:1px solid rgba(255,255,255,.17); border-radius:var(--radius); background:rgba(255,255,255,.075); backdrop-filter:blur(8px); }
+    .avatar { display:grid; place-items:center; width:82px; height:82px; margin-bottom:19px; border-radius:25px; background:var(--mint); color:var(--navy); font-size:1.55rem; font-weight:900; letter-spacing:-.07em; }
+    .hero-card h2 { font-size:1.1rem; margin-bottom:9px; }
+    .hero-card p { font-size:.93rem; margin:0; }
+    .meta { display:flex; gap:9px; flex-wrap:wrap; margin-top:19px; }
+    .pill { border:1px solid rgba(255,255,255,.2); border-radius:999px; padding:5px 10px; font-size:.77rem; color:#e0edf3; }
+    section { padding:78px 0; }
+    .section-head { max-width:690px; margin-bottom:32px; }
+    .section-head .eyebrow { color:var(--teal); }
+    h2.section-title { color:var(--navy); font-size:clamp(1.9rem,3.5vw,2.75rem); line-height:1.12; letter-spacing:-.04em; margin:10px 0 12px; }
+    .section-head p { color:var(--muted); margin-bottom:0; }
+    .about-grid { display:grid; grid-template-columns:1.2fr .8fr; gap:22px; }
+    .card { background:white; border:1px solid var(--line); border-radius:var(--radius); padding:27px; box-shadow:var(--shadow); }
+    .card h3 { color:var(--navy); font-size:1.08rem; margin-bottom:10px; }
+    .card p:last-child { margin-bottom:0; }
+    .values { display:grid; grid-template-columns:1fr 1fr; gap:11px; }
+    .value { padding:13px; background:#f5faf9; border-radius:13px; }
+    .value strong { display:block; color:var(--navy); font-size:.93rem; }
+    .value span { color:var(--muted); font-size:.83rem; }
+    .soft { background:#edf6f6; }
+    .pillars { display:grid; grid-template-columns:repeat(4,1fr); gap:15px; }
+    .pillar { background:white; border:1px solid #d5e8e6; border-radius:17px; padding:21px; }
+    .pillar .num { color:var(--teal); font-size:.78rem; font-weight:900; letter-spacing:.12em; }
+    .pillar h3 { margin:9px 0 7px; color:var(--navy); font-size:1rem; }
+    .pillar p { color:var(--muted); font-size:.9rem; margin:0; }
+    .projects { display:grid; grid-template-columns:repeat(2,1fr); gap:18px; }
+    .project-card { min-height:220px; display:flex; flex-direction:column; justify-content:space-between; }
+    .project-mark { display:grid; place-items:center; width:48px; height:48px; border-radius:15px; background:var(--mint); color:#087e75; font-weight:900; font-size:1.2rem; margin-bottom:16px; }
+    .status { display:inline-flex; align-self:flex-start; background:#fff5df; color:#815b12; border-radius:999px; padding:4px 10px; font-size:.75rem; font-weight:800; }
+    .project-placeholder { border-style:dashed; background:linear-gradient(145deg,#fff,#f7fbfc); }
+    .project-placeholder p { color:var(--muted); }
+    .learning-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+    .learning-card { background:white; border:1px solid var(--line); border-radius:17px; padding:22px; }
+    .learning-card h3 { color:var(--navy); margin-bottom:8px; }
+    .learning-card p { color:var(--muted); font-size:.92rem; margin:0; }
+    .cta { background:var(--navy); color:white; border-radius:24px; padding:38px; display:flex; align-items:center; justify-content:space-between; gap:25px; }
+    .cta h2 { font-size:clamp(1.6rem,3vw,2.3rem); letter-spacing:-.035em; margin-bottom:8px; }
+    .cta p { color:#cbd9e5; margin:0; }
+    footer { padding:26px 0; color:var(--muted); font-size:.88rem; }
+    .footer-row { display:flex; justify-content:space-between; gap:18px; align-items:center; border-top:1px solid var(--line); padding-top:20px; }
+    .small-link { color:#087e75; font-weight:750; text-decoration:none; }
+    .small-link:hover { text-decoration:underline; }
+    @media (max-width:800px) {
+      .hero-grid,.about-grid { grid-template-columns:1fr; }
+      .hero { padding:67px 0; }
+      .hero-card { max-width:500px; }
+      .pillars { grid-template-columns:repeat(2,1fr); }
+      .learning-grid { grid-template-columns:1fr; }
+      .cta { align-items:flex-start; flex-direction:column; }
+    }
+    @media (max-width:620px) {
+      .wrap { width:min(var(--max),calc(100% - 28px)); }
+      .nav { min-height:66px; flex-wrap:wrap; padding:12px 0; }
+      .menu-btn { display:block; }
+      .navlinks { display:none; width:100%; flex-direction:column; align-items:flex-start; gap:0; padding:4px 0 10px; }
+      .navlinks.open { display:flex; }
+      .navlinks a { width:100%; padding:9px 0; }
+      h1 { font-size:2.75rem; }
+      section { padding:58px 0; }
+      .pillars,.projects { grid-template-columns:1fr; }
+      .values { grid-template-columns:1fr; }
+      .card,.cta { padding:22px; }
+      .footer-row { flex-direction:column; align-items:flex-start; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } *,*::before,*::after { transition:none !important; } }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap nav">
+      <a class="brand" href="#home" aria-label="Devyansh Singh home"><span class="monogram" aria-hidden="true">DS</span><span>Devyansh Singh</span></a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="navlinks">Menu</button>
+      <nav class="navlinks" id="navlinks" aria-label="Main navigation">
+        <a href="#about">About</a><a href="#focus">Focus</a><a href="#projects">Projects</a><a href="#learning">Learning</a><a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow">BCA student · Technology learner</div>
+          <h1>Learning in progress.<br>Building with purpose.</h1>
+          <p>I’m documenting my journey as a BCA (AI &amp; Data Science) student through practical learning, small experiments, and clear reflections. This portfolio will grow as I complete work I can demonstrate and explain.</p>
+          <p class="tagline">Learn it. Build it. Share the lesson.</p>
+          <div class="actions">
+            <a class="btn" href="#projects">Explore my work <span aria-hidden="true">→</span></a>
+            <a class="btn ghost" href="https://www.linkedin.com/in/devyansh-singh-52a0bb259" target="_blank" rel="noopener noreferrer">Connect on LinkedIn <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+        <aside class="hero-card" aria-label="Profile summary">
+          <div class="avatar" aria-hidden="true">DS</div>
+          <h2>Curious by nature. Consistent by practice.</h2>
+          <p>I value honest progress, clear explanations, and learning by doing. I’m building my foundations one step at a time.</p>
+          <div class="meta"><span class="pill">BCA (AI &amp; Data Science)</span><span class="pill">Roll No. 2501060034</span><span class="pill">Python</span><span class="pill">Responsible AI</span></div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="wrap">
+        <div class="section-head"><div class="eyebrow">A little about me</div><h2 class="section-title">Progress over pretence.</h2><p>A student portfolio centered on what I’m learning, what I’m making, and what I still want to understand.</p></div>
+        <div class="about-grid">
+          <article class="card"><h3>My approach</h3><p>I’m a BCA (AI &amp; Data Science) student exploring technology through coursework, regular practice, and small projects. I try to explain ideas in my own words, verify what I share, and treat feedback as part of learning. This site is a work in progress and will be updated with real projects and learning notes as I complete them.</p></article>
+          <article class="card"><h3>What guides my work</h3><div class="values">
+            <div class="value"><strong>Curiosity</strong><span>Ask, explore, test.</span></div>
+            <div class="value"><strong>Consistency</strong><span>Make steady progress.</span></div>
+            <div class="value"><strong>Clarity</strong><span>Explain simply and honestly.</span></div>
+            <div class="value"><strong>Integrity</strong><span>Show evidence; cite sources.</span></div>
+          </div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="soft" id="focus">
+      <div class="wrap">
+        <div class="section-head"><div class="eyebrow">My learning themes</div><h2 class="section-title">A practical learning journey.</h2><p>These are the content pillars I’m using to organize my progress and share useful notes with other learners.</p></div>
+        <div class="pillars">
+          <article class="pillar"><div class="num">01</div><h3>Learning notes</h3><p>Beginner-friendly explanations of concepts I’m actively studying.</p></article>
+          <article class="pillar"><div class="num">02</div><h3>Small builds</h3><p>Projects and experiments with clear scope, purpose, and lessons.</p></article>
+          <article class="pillar"><div class="num">03</div><h3>Problem-solving</h3><p>How I break tasks down, test ideas, and learn from mistakes.</p></article>
+          <article class="pillar"><div class="num">04</div><h3>Responsible AI</h3><p>Using AI as a helper while checking facts and owning the final work.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="wrap">
+        <div class="section-head"><div class="eyebrow">Selected work</div><h2 class="section-title">Projects, added with proof.</h2><p>I’ll feature projects here when I can link to the work and explain my contribution. No placeholder project is presented as completed.</p></div>
+        <div class="projects">
+          <article class="card project-card project-placeholder"><div><div class="project-mark" aria-hidden="true">＋</div><h3>Project coming soon</h3><p>Add a real project here with its goal, your role, tools actually used, what you learned, and a working demo or repository link.</p></div><span class="status">In progress: portfolio update</span></article>
+          <article class="card project-card"><div><div class="project-mark" aria-hidden="true">✎</div><h3>Learning notes</h3><p>A space for short study notes and explanations. Add a public note or article only after checking its accuracy and sources.</p></div><a class="small-link" href="https://www.linkedin.com/in/devyansh-singh-52a0bb259" target="_blank" rel="noopener noreferrer">Find my updates on LinkedIn ↗</a></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="soft" id="learning">
+      <div class="wrap">
+        <div class="section-head"><div class="eyebrow">How I learn</div><h2 class="section-title">A process I can repeat.</h2><p>My goal is to build understanding, not just collect answers.</p></div>
+        <div class="learning-grid">
+          <article class="learning-card"><h3>01. Explore</h3><p>Start with a question, a course topic, or a small practical task.</p></article>
+          <article class="learning-card"><h3>02. Test</h3><p>Try a simple example, check reliable sources, and notice what does not make sense yet.</p></article>
+          <article class="learning-card"><h3>03. Explain</h3><p>Write the lesson in my own words, invite feedback, and decide on the next step.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap">
+        <div class="cta"><div><h2>Let’s learn from each other.</h2><p>Open to thoughtful conversations, constructive feedback, and new perspectives.</p></div><a class="btn" href="https://www.linkedin.com/in/devyansh-singh-52a0bb259" target="_blank" rel="noopener noreferrer">Visit my LinkedIn <span aria-hidden="true">↗</span></a></div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="wrap footer-row"><span>© <span id="year">2026</span> Devyansh Singh · BCA (AI &amp; Data Science) student</span><span>Built around curiosity, consistency, and honest progress.</span></div></footer>
+  <script>
+    const menuButton = document.querySelector('.menu-btn');
+    const navLinks = document.querySelector('.navlinks');
+    menuButton.addEventListener('click', () => {
+      const open = menuButton.getAttribute('aria-expanded') === 'true';
+      menuButton.setAttribute('aria-expanded', String(!open));
+      navLinks.classList.toggle('open', !open);
+    });
+    navLinks.addEventListener('click', event => {
+      if (event.target.closest('a')) {
+        navLinks.classList.remove('open');
+        menuButton.setAttribute('aria-expanded', 'false');
+      }
+    });
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
